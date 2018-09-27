@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ToastAndroid } from 'react-native';
+import { View, ToastAndroid } from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { connect } from 'react-redux';
 import { scanSuccess } from '../../actions';
@@ -27,9 +27,26 @@ class Scan extends Component {
         this.scanner.reactivate();
     }
 
+    renderCustomMarker = () => {
+        return (
+            <View style={styles.rectangleContainer}>
+                <View style={[styles.rectangle, this.props.markerStyle ? this.props.markerStyle : null]}>
+                <View
+                    style={{
+                        borderBottomColor: 'green',
+                        borderBottomWidth: 10,
+                    }}
+                />
+                </View>
+            </View>
+        );
+    }
+
     render() {
         return(
             <QRCodeScanner
+                showMarker
+                customMarker={this.renderCustomMarker()}
                 onRead={this.onSuccess}
                 ref={(node) => { this.scanner = node }}
             />
@@ -38,6 +55,23 @@ class Scan extends Component {
 }
 
 export default connect(null, { scanSuccess })(Scan);
+
+const styles = {
+    rectangleContainer: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'transparent',
+    },
+  
+    rectangle: {
+      height: 250,
+      width: 250,
+      borderWidth: 2,
+      borderColor: 'red',
+      backgroundColor: 'transparent',
+    },
+  };
 
 
 

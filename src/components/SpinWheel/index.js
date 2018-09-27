@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, ToastAndroid } from 'react-native';
+import { View, Image, ToastAndroid, TouchableWithoutFeedback } from 'react-native';
 import { Card, CardSection, Button } from '../common';
 import SpinView from '../common/SpinView';
 import wheel from '../../assets/images/wheel.png';
@@ -9,8 +9,10 @@ import { spinTheWheel } from '../../actions';
 
 class SpinWheel extends Component {
 
-    onSpinButtonClick = () => {
-        this.props.spinTheWheel(true);
+    onSpinButtonClick = () => { 
+        if(!this.props.isSpinning && !this.props.lastSpinnedDate) {
+            this.props.spinTheWheel(true);
+        }
     }
 
     finishedSpinning = () => {
@@ -21,23 +23,49 @@ class SpinWheel extends Component {
         this.props.spinTheWheel(false);
     }
 
+    renderButton = () => {
+        if(this.props.isSpinning) {
+            return (
+                <Button>Spinning</Button>
+            );
+        }
+        else if(this.props.lastSpinnedDate) {
+            return (
+                <Button>Come Back Tomorrow!!</Button>
+            );
+        }
+        
+        return (
+            <Button onPress={this.onSpinButtonClick}>Spin</Button>
+        );
+    }
+
     render() {
         const { wheelStyle, wheelContainer } = styles;
 
         return(
             <Card>
                 <CardSection style={ wheelContainer }>
-                    <SpinView onFinishedAnimating={this.finishedSpinning}>
-                        <Image source={ wheel } style={ wheelStyle }/>
-                    </SpinView>
+                    <TouchableWithoutFeedback onPress={this.onSpinButtonClick}>
+                        <View>
+                            <SpinView onFinishedAnimating={this.finishedSpinning}>
+                                <Image source={ wheel } style={ wheelStyle }/>
+                                {/* <Image source={ {uri: 'https://banner2.kisspng.com/20180411/pvw/kisspng-wheel-of-fortune-2-game-show-sword-art-online-fat-wheel-5ace34029c8f01.8674029715234631706413.jpg'} } style={ wheelStyle }/> */}
+                            </SpinView>
+                        </View>
+                    </TouchableWithoutFeedback>
                 </CardSection>
 
                 <CardSection>
-                    <Button onPress={this.onSpinButtonClick}>Spin</Button>
+                    {this.renderButton()}
                 </CardSection>
             </Card>
         )
     }
 }
 
-export default connect(null, { spinTheWheel })(SpinWheel);
+mapStateToProps = state => {
+    const { lastSpinnedDate, isSpinning } = state.spin;
+    return { lastSpinnedDate, isSpinning };
+}
+export default connect(mapStateToProps, { spinTheWheel })(SpinWheel);

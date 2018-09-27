@@ -14,7 +14,7 @@ class SpinView extends React.Component {
               {
                   toValue: 1,
                   duration: 7000,
-                  easing: Easing.cubic
+                  easing: Easing.bezier(0, 1, 0, 1)
               }
           ).start(this.props.onFinishedAnimating);
       }
@@ -25,7 +25,7 @@ class SpinView extends React.Component {
 
     const spin = spinValue.interpolate({
         inputRange: [0, 1],
-        outputRange: ['0deg', '10000deg']
+        outputRange: ['0deg', '5000deg']
     });
 
     return (

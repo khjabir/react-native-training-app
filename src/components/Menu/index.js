@@ -1,7 +1,31 @@
 import React, {Component} from 'react';
+import { NetInfo, ToastAndroid } from 'react-native';
 import { Card, CardSection, Button } from '../common';
+import { connect } from 'react-redux';
+import { networkStatusChanged } from '../../actions';
 
 class Menu extends Component {
+
+    constructor() {
+        super();
+        // NetInfo.isConnected.fetch().then(isConnected => {
+        //     console.log('Network, is ' + (isConnected ? 'online' : 'offline'));
+        //     ToastAndroid.show('Network, is ' + (isConnected ? 'online' : 'offline'), ToastAndroid.LONG);
+        //   });
+          handleFirstConnectivityChange = (isConnected) => {
+            console.log('Then, is ' + (isConnected ? 'online' : 'offline'));
+            ToastAndroid.show('Network, is ' + (isConnected ? 'online' : 'offline'), ToastAndroid.LONG);
+            this.props.networkStatusChanged(isConnected);
+            // NetInfo.isConnected.removeEventListener(
+            //   'connectionChange',
+            //   handleFirstConnectivityChange
+            // );
+          }
+          NetInfo.isConnected.addEventListener(
+            'connectionChange',
+            handleFirstConnectivityChange
+          );
+    }
 
     goToScanScreen = () => {
         this.props.navigation.navigate('Scan');
@@ -10,6 +34,8 @@ class Menu extends Component {
     goToSpinScreen = () => {
         this.props.navigation.navigate('SpinWheel');
     }
+
+    
 
     render() {
         return (
@@ -24,4 +50,4 @@ class Menu extends Component {
     }
 }
 
-export default Menu;
+export default connect(null, { networkStatusChanged })(Menu);

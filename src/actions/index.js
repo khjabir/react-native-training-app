@@ -5,7 +5,8 @@ import {
     LOGIN_FAIL,
     LOGGING_IN,
     SCAN_SUCCESS,
-    SPIN_THE_WHEEL
+    SPIN_THE_WHEEL,
+    NETWORK_STATUS_CHANGE
  } from './types'
 
  /* ******************************* Login Form *********************************** */
@@ -56,5 +57,14 @@ export const spinTheWheel = (action) => {
     return {
         type: SPIN_THE_WHEEL,
         payload: action
+    }
+}
+
+ /* ******************************* Common *********************************** */
+
+export const networkStatusChanged = (status) => {
+    return {
+        type: NETWORK_STATUS_CHANGE,
+        payload: status
     }
 }

@@ -5,3 +5,5 @@ export const LOGIN_FAIL = 'login_user_fail'
 export const LOGGING_IN = 'logging_in'
 export const SCAN_SUCCESS = 'scan_success'
 export const SPIN_THE_WHEEL = 'spin_the_wheel'
+export const NETWORK_STATUS_CHANGE = 'network_status_change'
+

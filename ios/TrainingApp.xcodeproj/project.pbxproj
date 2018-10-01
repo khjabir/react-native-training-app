@@ -39,6 +39,7 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		DAD7B105354049B9B59D4608 /* libRNCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 145185DE52D04591A4182377 /* libRNCamera.a */; };
 		C985A094BF434339BB76716B /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF77D3AA21B449A9AD4D2B2 /* libReactNativePermissions.a */; };
+		4A2BB2BECA714D7FA1962472 /* libPlaySound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BEDF2106AB54B3D82B0999E /* libPlaySound.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -348,6 +349,8 @@
 		145185DE52D04591A4182377 /* libRNCamera.a */ = {isa = PBXFileReference; name = "libRNCamera.a"; path = "libRNCamera.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		71EA328357034CE48803930A /* ReactNativePermissions.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativePermissions.xcodeproj"; path = "../node_modules/react-native-permissions/ios/ReactNativePermissions.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		ECF77D3AA21B449A9AD4D2B2 /* libReactNativePermissions.a */ = {isa = PBXFileReference; name = "libReactNativePermissions.a"; path = "libReactNativePermissions.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		7A043677657D4408857E0CD1 /* PlaySound.xcodeproj */ = {isa = PBXFileReference; name = "PlaySound.xcodeproj"; path = "../node_modules/react-native-play-sound/PlaySound/PlaySound.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		0BEDF2106AB54B3D82B0999E /* libPlaySound.a */ = {isa = PBXFileReference; name = "libPlaySound.a"; path = "libPlaySound.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +380,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				DAD7B105354049B9B59D4608 /* libRNCamera.a in Frameworks */,
 				C985A094BF434339BB76716B /* libReactNativePermissions.a in Frameworks */,
+				4A2BB2BECA714D7FA1962472 /* libPlaySound.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +569,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				E00D0F690B8546FBAC9CB990 /* RNCamera.xcodeproj */,
 				71EA328357034CE48803930A /* ReactNativePermissions.xcodeproj */,
+				7A043677657D4408857E0CD1 /* PlaySound.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1194,11 +1199,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-play-sound\PlaySound\PlaySound",
 				);
 			};
 			name = Debug;
@@ -1222,11 +1229,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-play-sound\PlaySound\PlaySound",
 				);
 			};
 			name = Release;
@@ -1251,6 +1260,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-play-sound\PlaySound\PlaySound",
 				);
 			};
 			name = Debug;
@@ -1274,6 +1284,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-play-sound\PlaySound\PlaySound",
 				);
 			};
 			name = Release;
@@ -1305,11 +1316,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-play-sound\PlaySound\PlaySound",
 				);
 			};
 			name = Debug;
@@ -1341,11 +1354,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-play-sound\PlaySound\PlaySound",
 				);
 			};
 			name = Release;
@@ -1376,11 +1391,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-play-sound\PlaySound\PlaySound",
 				);
 			};
 			name = Debug;
@@ -1411,11 +1428,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-play-sound\PlaySound\PlaySound",
 				);
 			};
 			name = Release;

@@ -6,17 +6,20 @@ import wheel from '../../assets/images/wheel.png';
 import { connect } from 'react-redux';
 import { styles } from './styles';
 import { spinTheWheel } from '../../actions';
+import { PlaySound, StopSound, PlaySoundRepeat, PlaySoundMusicVolume } from 'react-native-play-sound';
 
 class SpinWheel extends Component {
 
     onSpinButtonClick = () => { 
         if(!this.props.isSpinning && !this.props.lastSpinnedDate) {
             this.props.spinTheWheel(true);
+            PlaySoundRepeat('tick');
         }
     }
 
     finishedSpinning = () => {
         ToastAndroid.show("Spinning Finished", ToastAndroid.LONG);
+        StopSound();
         setTimeout(() => {
             this.props.navigation.replace("SpinSuccess");
         }, 2000);
@@ -26,7 +29,7 @@ class SpinWheel extends Component {
     renderButton = () => {
         if(this.props.isSpinning) {
             return (
-                <Button>Spinning</Button>
+                <Button>Spinning {this.props.isOnline ? 'Online' : 'Offline'}</Button>
             );
         }
         else if(this.props.lastSpinnedDate) {
@@ -66,6 +69,7 @@ class SpinWheel extends Component {
 
 mapStateToProps = state => {
     const { lastSpinnedDate, isSpinning } = state.spin;
-    return { lastSpinnedDate, isSpinning };
+    const { isOnline } = state.common;
+    return { lastSpinnedDate, isSpinning, isOnline };
 }
 export default connect(mapStateToProps, { spinTheWheel })(SpinWheel);

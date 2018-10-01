@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, ToastAndroid } from 'react-native';
+import { View, ToastAndroid, Dimensions } from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { connect } from 'react-redux';
 import { scanSuccess } from '../../actions';
+import { PlaySound, StopSound, PlaySoundRepeat, PlaySoundMusicVolume } from 'react-native-play-sound';
 
 class Scan extends Component {
 
@@ -11,6 +12,7 @@ class Scan extends Component {
             ToastAndroid.show('Success', ToastAndroid.LONG);
             this.props.scanSuccess(e.data) ;
             this.props.navigation.replace('ScanSuccess');
+            PlaySound('ticktock');
         } else {
             ToastAndroid.show('Invalid QR', ToastAndroid.LONG);
             setTimeout(() => {
@@ -62,6 +64,11 @@ const styles = {
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: 'transparent',
+      opacity: 0.5,
+      borderWidth: 2,
+      borderColor: 'red',
+      width: Dimensions.get('window').width,
+      height: Dimensions.get('window').height
     },
   
     rectangle: {
@@ -70,6 +77,7 @@ const styles = {
       borderWidth: 2,
       borderColor: 'red',
       backgroundColor: 'transparent',
+      
     },
   };
 
